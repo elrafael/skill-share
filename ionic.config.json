@@ -1,0 +1,7 @@
+{
+  "name": "skill-share",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
