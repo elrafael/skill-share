@@ -1,24 +1,26 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Geolocation } from '@capacitor/geolocation';
 import {
-  IonContent,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
+  IonButton,
   IonButtons,
-  IonBackButton,
   IonCard,
+  IonCardContent,
   IonCardHeader,
   IonCardSubtitle,
-  IonIcon,
   IonCardTitle,
-  IonCardContent,
-  IonButton,
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonMenuButton,
   IonSpinner,
   IonText,
+  IonTitle,
+  IonToolbar,
 } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { locationOutline, refreshOutline } from 'ionicons/icons';
 
 interface WeatherView {
   temperature: number;
@@ -36,8 +38,6 @@ interface OpenMeteoResponse {
     time: string;
   };
 }
-import { addIcons } from 'ionicons';
-import { locationOutline, refreshOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-weather',
@@ -52,7 +52,6 @@ import { locationOutline, refreshOutline } from 'ionicons/icons';
     CommonModule,
     FormsModule,
     IonButtons,
-    IonBackButton,
     IonCard,
     IonCardHeader,
     IonCardSubtitle,
@@ -62,6 +61,7 @@ import { locationOutline, refreshOutline } from 'ionicons/icons';
     IonButton,
     IonSpinner,
     IonText,
+    IonMenuButton,
   ],
 })
 export class WeatherPage implements OnInit {
