@@ -1,24 +1,26 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Geolocation } from '@capacitor/geolocation';
 import {
-  IonContent,
-  IonHeader,
-  IonTitle,
-  IonToolbar,
+  IonButton,
   IonButtons,
-  IonBackButton,
   IonCard,
+  IonCardContent,
   IonCardHeader,
   IonCardSubtitle,
-  IonIcon,
   IonCardTitle,
-  IonCardContent,
-  IonButton,
+  IonContent,
+  IonHeader,
+  IonIcon,
+  IonMenuButton,
   IonSpinner,
   IonText,
+  IonTitle,
+  IonToolbar,
 } from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { locationOutline, refreshOutline } from 'ionicons/icons';
 
 interface WeatherView {
   temperature: number;
@@ -36,8 +38,6 @@ interface OpenMeteoResponse {
     time: string;
   };
 }
-import { addIcons } from 'ionicons';
-import { locationOutline, refreshOutline } from 'ionicons/icons';
 
 @Component({
   selector: 'app-weather',
@@ -52,7 +52,6 @@ import { locationOutline, refreshOutline } from 'ionicons/icons';
     CommonModule,
     FormsModule,
     IonButtons,
-    IonBackButton,
     IonCard,
     IonCardHeader,
     IonCardSubtitle,
@@ -62,6 +61,7 @@ import { locationOutline, refreshOutline } from 'ionicons/icons';
     IonButton,
     IonSpinner,
     IonText,
+    IonMenuButton,
   ],
 })
 export class WeatherPage implements OnInit {
@@ -83,7 +83,11 @@ export class WeatherPage implements OnInit {
     this.loading = true;
     this.error = null;
     try {
-      const position = await Geolocation.getCurrentPosition();
+      const position = await Geolocation.getCurrentPosition({
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 30000,
+      });
       const { latitude: lat, longitude: lon } = position.coords;
       this.coords = { lat, lon };
 
@@ -92,7 +96,7 @@ export class WeatherPage implements OnInit {
       const data: OpenMeteoResponse = await response.json();
 
       this.weather = this.parserWeather(data.current_weather);
-    } catch (err) {
+    } catch (err: any) {
       console.error('Erro ao obter localização/clima', err);
       this.error =
         'Não foi possível obter a tua localização. Verifica as permissões.';
