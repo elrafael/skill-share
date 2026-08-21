@@ -25,27 +25,5 @@
         >UI Components</a
       >
     </p>
-
-    @if ( photoTaken) {
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>Photo</ion-card-title>
-        <ion-card-subtitle>Photo taken with the camera</ion-card-subtitle>
-      </ion-card-header>
-
-      <ion-card-content>
-        <ion-img [src]="photoTaken" alt="Photo taken with the camera"></ion-img>
-      </ion-card-content>
-    </ion-card>
-    }
-
-    <ion-button
-      shape="round"
-      fill="outline"
-      color="primary"
-      (click)="takePhoto()"
-    >
-      Take a Photo
-    </ion-button>
   </div>
 </ion-content>
