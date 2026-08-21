@@ -83,14 +83,12 @@ export class WeatherPage implements OnInit {
     this.loading = true;
     this.error = null;
     try {
-      // const position = await Geolocation.getCurrentPosition({
-      //   enableHighAccuracy: false,
-      //   timeout: 10000,
-      // });
-      // const { latitude: lat, longitude: lon } = position.coords;
-      // this.coords = { lat, lon };
-      const lat = 38.7223;
-      const lon = -9.1393;
+      const position = await Geolocation.getCurrentPosition({
+        enableHighAccuracy: true,
+        timeout: 10000,
+        maximumAge: 30000,
+      });
+      const { latitude: lat, longitude: lon } = position.coords;
       this.coords = { lat, lon };
 
       const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
@@ -100,9 +98,8 @@ export class WeatherPage implements OnInit {
       this.weather = this.parserWeather(data.current_weather);
     } catch (err: any) {
       console.error('Erro ao obter localização/clima', err);
-      // this.error =
-      //   'Não foi possível obter a tua localização. Verifica as permissões.';
-      this.error = `${err?.message ?? 'Erro desconhecido'} (code: ${err?.code ?? '?'})`;
+      this.error =
+        'Não foi possível obter a tua localização. Verifica as permissões.';
     } finally {
       this.loading = false;
     }
