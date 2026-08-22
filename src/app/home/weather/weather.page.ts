@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { Geolocation } from '@capacitor/geolocation';
 import {
   IonButton,
-  IonButtons,
   IonCard,
   IonCardContent,
   IonCardHeader,
@@ -13,11 +12,12 @@ import {
   IonContent,
   IonHeader,
   IonIcon,
-  IonMenuButton,
   IonSpinner,
   IonText,
   IonTitle,
   IonToolbar,
+  IonButtons,
+  IonBackButton,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
 import { locationOutline, refreshOutline } from 'ionicons/icons';
@@ -51,17 +51,17 @@ interface OpenMeteoResponse {
     IonToolbar,
     CommonModule,
     FormsModule,
-    IonButtons,
     IonCard,
     IonCardHeader,
-    IonCardSubtitle,
-    IonIcon,
     IonCardTitle,
+    IonCardSubtitle,
     IonCardContent,
     IonButton,
+    IonButtons,
+    IonBackButton,
     IonSpinner,
     IonText,
-    IonMenuButton,
+    IonIcon,
   ],
 })
 export class WeatherPage implements OnInit {

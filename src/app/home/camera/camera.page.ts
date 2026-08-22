@@ -1,7 +1,6 @@
-import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Camera } from '@capacitor/camera';
 import {
   IonBackButton,
   IonButton,
@@ -17,6 +16,7 @@ import {
   IonTitle,
   IonToolbar,
 } from '@ionic/angular/standalone';
+import { Camera } from '@capacitor/camera';
 
 @Component({
   selector: 'app-camera',
@@ -42,7 +42,7 @@ import {
   ],
 })
 export class CameraPage implements OnInit {
-  protected photoTaken = '';
+  protected photoTaken: string | undefined;
 
   constructor() {}
 
