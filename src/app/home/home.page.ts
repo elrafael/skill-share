@@ -8,7 +8,14 @@ import {
   IonTabs,
 } from '@ionic/angular/standalone';
 import { addIcons } from 'ionicons';
-import { camera, cloud, homeOutline } from 'ionicons/icons';
+import {
+  cameraOutline,
+  cameraSharp,
+  cloudOutline,
+  cloudSharp,
+  homeOutline,
+  homeSharp,
+} from 'ionicons/icons';
 
 @Component({
   selector: 'app-home',
@@ -26,7 +33,14 @@ import { camera, cloud, homeOutline } from 'ionicons/icons';
 })
 export class HomePage implements OnInit {
   constructor() {
-    addIcons({ camera, cloud, homeOutline });
+    addIcons({
+      cameraOutline,
+      cameraSharp,
+      cloudOutline,
+      cloudSharp,
+      homeOutline,
+      homeSharp,
+    });
   }
 
   ngOnInit() {}
