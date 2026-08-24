@@ -42,7 +42,8 @@
   justify-content: center;
   height: 100%;
   flex-direction: column;
-  ion-card {
+  ion-card,
+  ion-list {
     width: 90%;
     max-width: 400px;
   }
