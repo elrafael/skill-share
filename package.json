@@ -45,7 +45,7 @@
     "@angular/cli": "20.3.28",
     "@angular/compiler-cli": "20.3.25",
     "@angular/language-service": "20.3.25",
-    "@capacitor/cli": "8.5.0",
+    "@capacitor/cli": "8.5.1",
     "@ionic/angular-toolkit": "^12.0.0",
     "@types/jasmine": "~5.1.0",
     "@typescript-eslint/eslint-plugin": "^8.18.0",
